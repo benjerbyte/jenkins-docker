@@ -1,4 +1,4 @@
-FROM jenkins/jenkins
+FROM jenkins/jenkins:lts
 USER root
 
 RUN mkdir -p /tmp/download && \
@@ -7,7 +7,6 @@ RUN mkdir -p /tmp/download && \
  mv /tmp/download/docker/docker* /usr/local/bin/ && \
  rm -rf /tmp/download && \
  groupadd -g 999 docker && \
- usermod -aG docker sauce
+ usermod -aG staff,docker jenkins
 
-
-USER sauce
+USER jenkins
