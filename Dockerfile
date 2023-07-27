@@ -6,7 +6,8 @@ RUN mkdir -p /tmp/download && \
  rm -rf /tmp/download/docker/dockerd && \
  mv /tmp/download/docker/docker* /usr/local/bin/ && \
  rm -rf /tmp/download && \
-usermod -aG docker sauce
+ groupadd -g 999 docker && \
+ usermod -aG docker sauce
 
 
 USER sauce
